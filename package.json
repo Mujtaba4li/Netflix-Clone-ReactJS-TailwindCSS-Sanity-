@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "description": "Boilerplate: React, Typescript, Vite, Styled Components, Redux persist",
-  "repository": "https://github.com/C0C41N/React-TS-Vite-Styled-Persist-Template",
+  "repository": "https://github.com/Mujtaba4li/boilerplate-react-ts",
   "author": "Mujtaba4li <mujiroy01@gmail.com>",
   "license": "BSD 3-Clause License",
   "type": "module",
@@ -16,6 +16,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
+    "@reduxjs/toolkit": "^1.9.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
