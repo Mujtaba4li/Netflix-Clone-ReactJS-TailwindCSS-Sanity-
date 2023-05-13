@@ -10,6 +10,7 @@ export default css`
 		overflow-y: scroll;
 		display: flex;
 		-webkit-overflow-scrolling: touch;
+		font-size: 1px;
 	}
 
 	body {
