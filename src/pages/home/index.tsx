@@ -7,6 +7,7 @@ import { useMainSlice } from '@redux/hooks'
 import { T16, T48Bold } from '@styles/typo'
 
 import { Container } from './styled'
+import LinkText from '@components/LinkText'
 
 const Home = () => {
 	const dispatch = useDispatch()
@@ -23,10 +24,7 @@ const Home = () => {
 	return (
 		<Container>
 			<T48Bold>{dummy}</T48Bold>
-			<a href='collections'>
-
-				<T16>Go to collections</T16>
-			</a>
+			<LinkText to='collections' above={10}>Go to Collection Page</LinkText>
 			<Button above={50} onClick={onClick}>
 				Click here
 			</Button>

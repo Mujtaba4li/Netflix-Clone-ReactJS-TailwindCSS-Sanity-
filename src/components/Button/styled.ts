@@ -1,9 +1,10 @@
 import styled from '@emotion/styled'
-import { lightSlateGray, vividCerulean } from '@styles/colors'
+import { T14BoldSpaced } from '@styles/typo'
 import { withPos } from '@styles/util'
 
 interface IButton {
-	white?: boolean
+	background?: string
+	color?: string
 }
 
 export const Container = withPos(styled.button<IButton>`
@@ -16,7 +17,9 @@ export const Container = withPos(styled.button<IButton>`
 	border-radius: 8px;
 	border: none;
 
-	background-color: ${p => (p.white ? 'white' : vividCerulean)};
+	gap: 5rem;
+
+	background-color: ${p => (p.background ? `${p.background}` : 'black')};
 
 	cursor: pointer;
 
@@ -24,9 +27,15 @@ export const Container = withPos(styled.button<IButton>`
 	transition: all 0.2s ease-in-out;
 
 	:focus-visible {
-		outline: 2px solid ${lightSlateGray}88; // 0x88 = 50% opacity
-		/* box-shadow: 0 10px 20px ${vividCerulean}33; // 0x33 = 20% opacity */
+		outline: 2px solid 'orange' 88; // 0x88 = 50% opacity
 	}
 
-	${p => (p.white ? `p{color: ${lightSlateGray}}` : 'white')}
+	color: ${p => (p.color ? p.color : 'white')};
 `)
+
+export const Icon = styled.img`
+	height: 25rem;
+`
+export const Text = styled(T14BoldSpaced)<IButton>`
+	color: ${p => (p.color ? p.color : 'white')};
+`

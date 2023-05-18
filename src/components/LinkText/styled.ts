@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import styled from '@emotion/styled'
-import { chineseBlack, vividCerulean } from '@styles/colors'
+import { chineseBlack } from '@styles/colors'
 import { T14BoldSpacedCSS } from '@styles/typo'
 import { withPos } from '@styles/util'
 
@@ -11,7 +11,7 @@ export const Container = withPos(styled(Link)`
 
 	padding-bottom: 10rem;
 
-	border-bottom: 1px solid ${vividCerulean};
+	border-bottom: 1px solid black;
 
 	text-decoration: none;
 
