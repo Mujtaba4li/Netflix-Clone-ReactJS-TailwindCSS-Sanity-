@@ -11,6 +11,7 @@ export interface IButton extends IPos {
 	icon?: string
 	background?:string
 	color?:string
+	opacity?:boolean;
 }
 
 const Button = forwardRef<HTMLButtonElement, IButton>((p, ref) => {

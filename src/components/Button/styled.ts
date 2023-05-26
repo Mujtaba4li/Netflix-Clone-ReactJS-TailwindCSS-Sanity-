@@ -5,6 +5,7 @@ import { withPos } from '@styles/util'
 interface IButton {
 	background?: string
 	color?: string
+	opacity?:boolean;
 }
 
 export const Container = withPos(styled.button<IButton>`
@@ -18,7 +19,8 @@ export const Container = withPos(styled.button<IButton>`
 	border: none;
 
 	gap: 5rem;
-
+	
+	opacity: ${p => (p.opacity ? `0.5` : '1')};;
 	background-color: ${p => (p.background ? `${p.background}` : 'black')};
 
 	cursor: pointer;

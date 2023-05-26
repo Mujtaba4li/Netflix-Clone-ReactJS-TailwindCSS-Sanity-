@@ -7,6 +7,7 @@ import TextField from '@components/TextField'
 import DropDown from '@components/Dropdown'
 import CardRow from '@components/CardRow'
 import Nav from '@components/Nav'
+import Header from '@components/Header'
 
 const Collections = () => {
 	return (
@@ -21,6 +22,7 @@ const Collections = () => {
 			<TextField placeholder='Enter password' type='text' conditionalField='cardNumber' />
 			<DropDown />
 			<CardRow title='New movies (This component is ready yet' />
+			<Header/>
 		</Container>
 	)
 }
