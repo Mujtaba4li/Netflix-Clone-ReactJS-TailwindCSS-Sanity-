@@ -3,7 +3,7 @@ import { css } from '@emotion/react'
 import { chineseBlack } from './colors'
 
 export default css`
-	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap');
 
 	html {
 		min-height: 100%;
@@ -18,7 +18,8 @@ export default css`
 		max-width: 100%;
 		flex-grow: 1;
 		margin: 0;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Baloo Bhai 2', cursive;
+		/* font-family: 'Inter', sans-serif; */
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		-webkit-tap-highlight-color: transparent;

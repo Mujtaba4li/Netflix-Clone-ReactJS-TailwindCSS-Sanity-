@@ -17,6 +17,7 @@ interface ITextField extends IPos {
 	type: TFieldType
 	width?: string
 	conditionalField?: TConditionalField
+	backgroundColor?: string
 }
 
 const TextField = ({ ...p }: ITextField) => {
@@ -81,6 +82,7 @@ const TextField = ({ ...p }: ITextField) => {
 		<>
 			<Container {...p}>
 				<Input
+				{...p}
 					type={typeText}
 					placeholder={placeholder}
 					onChange={handleInput}

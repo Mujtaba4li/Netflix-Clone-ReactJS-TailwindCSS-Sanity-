@@ -5,6 +5,7 @@ import { Bin } from '@types'
 
 interface IContainer {
 	width?: string
+	backgroundColor?: string
 }
 interface IEye {
 	visible: Bin
@@ -21,15 +22,15 @@ export const Container = withPos(styled.div<IContainer>`
 	height: 50rem;
 
 	padding: 10rem;
-
+	background-color: ${p => (p.backgroundColor ? p.backgroundColor : 'white')};
 	border: 2px solid ${black}1D;
-	border-radius: 10rem;
+	border-radius: 5rem;
 	&:focus-within {
 		border: 2px solid ${black}8d;
 	}
 `)
 
-export const Input = styled.input`
+export const Input = styled.input<IContainer>`
 	width: 95%;
 
 	font-size: 15rem;
@@ -37,7 +38,15 @@ export const Input = styled.input`
 
 	border: none;
 
+	background-color: ${p => (p.backgroundColor ? p.backgroundColor : 'white')};
+
 	padding: 5rem;
+	color: ${p => (p.backgroundColor ? 'white' : 'black')}; 
+	
+	::placeholder{
+		color:${p => (p.backgroundColor ? 'white' : 'black')};
+		opacity: 0.5;
+	}
 	:focus {
 		border: none;
 		outline: none;

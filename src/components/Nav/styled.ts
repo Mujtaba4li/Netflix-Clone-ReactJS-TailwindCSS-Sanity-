@@ -21,4 +21,5 @@ export const Container = withPos(styled.div<IContainer>`
 
 export const Logo = styled.img`
   height: 30rem;
+  cursor:pointer;
 `;

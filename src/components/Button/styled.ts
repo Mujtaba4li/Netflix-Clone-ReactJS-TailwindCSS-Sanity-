@@ -6,6 +6,7 @@ interface IButton {
 	background?: string
 	color?: string
 	opacity?:boolean;
+	width?:string;
 }
 
 export const Container = withPos(styled.button<IButton>`
@@ -13,6 +14,7 @@ export const Container = withPos(styled.button<IButton>`
 	align-items: center;
 	justify-content: center;
 
+	width: ${p=>p.width?p.width:'100'};
 	padding: 20px 30px;
 
 	border-radius: 8px;

@@ -3,32 +3,40 @@ import React, { useEffect, useState } from 'react'
 import { Container, Logo } from './styled'
 import { NetflixSVG, ProfileIMG } from '@assets/components/Nav'
 import { IPos } from '@styles/util'
+import { useNavigate } from 'react-router-dom'
+interface IContainer extends IPos {}
 
-interface IContainer extends IPos{
+const Nav = (p: IContainer) => {
+	const [scrolled, setScrolled] = useState(false)
+	const Navigate = useNavigate()
 
-}
+	useEffect(() => {
+		const handleScroll = () => {
+			const isScrolled = window.scrollY > 0
+			setScrolled(isScrolled)
+		}
 
-const Nav = (p:IContainer) => {
-  const [scrolled, setScrolled] = useState(false);
+		window.addEventListener('scroll', handleScroll)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 0;
-      setScrolled(isScrolled);
-    };
+		return () => {
+			window.removeEventListener('scroll', handleScroll)
+		}
+	}, [])
 
-    window.addEventListener('scroll', handleScroll);
+	const handleLogo = () => {
+		Navigate('/')
+	}
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  return (
-    <Container {...p} scrolled={scrolled}>
-       <Logo src={NetflixSVG}/>
-       <Logo src={ProfileIMG}/>
-    </Container>
-  )
+	const handleProfileButton = () => {
+		Navigate('/editprofile')
+	}
+
+	return (
+		<Container {...p} scrolled={scrolled}>
+			<Logo src={NetflixSVG} onClick={handleLogo} />
+			<Logo src={ProfileIMG} onClick={handleProfileButton} />
+		</Container>
+	)
 }
 
 export default Nav

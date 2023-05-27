@@ -26,12 +26,12 @@ const Header = (p: IHeader) => {
 				<Image src={imageSrc} alt='Slide' />
 			</ImageContainer>
 			<Content>
-				<T36Bold white>{title}</T36Bold>
+				<T36Bold white alignSelf='flex-start'>{title}</T36Bold>
 				<Row gap={10}>
-					<Button opacity={true}>Play</Button>
-					<Button opacity={true}>My List</Button>
+					<Button opacity={true} width='130rem'>Play</Button>
+					<Button opacity={true} width='130rem'>My List</Button>
 				</Row>
-				<T14 white>{description}</T14>
+				<T14 white alignSelf='flex-start'>{description}</T14>
 			</Content>
 		</Container>
 	)
