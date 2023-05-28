@@ -18,16 +18,24 @@ import Nav from '@components/Nav'
 import Button from '@components/Button'
 import { darkRed } from '@styles/colors'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setIsLoggedIn } from '@mainSlice'
 
 
 interface IEditPrifole {}
 
 const EditProile = (p: IEditPrifole) => {
 	const Navigate=useNavigate();
-
+	const dispatch=useDispatch();
 
 	const handleClick = () => {
 		Navigate('/checkout')
+	}
+
+	const handleSignout = () => {
+		Navigate('/');
+		dispatch(setIsLoggedIn(false))
+;
 	}
 	
 	return (
@@ -86,7 +94,7 @@ const EditProile = (p: IEditPrifole) => {
 							</Button>
 						</Buttons>
 					</Plans>
-					<Button background={darkRed} alignSelf='flex-end' width='100%'>
+					<Button background={darkRed} alignSelf='flex-end' width='100%' onClick={handleSignout}>
 						Sign out
 					</Button>
 				</Right>

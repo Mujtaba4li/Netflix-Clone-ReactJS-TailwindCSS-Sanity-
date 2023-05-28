@@ -9,9 +9,12 @@ const MainSlice = createSlice({
 		setDummy: (state, action: PayloadAction<string>) => {
 			state.dummy = action.payload
 		},
+		setIsLoggedIn: (state, action: PayloadAction<boolean>) => {
+			state.isLoggedIn = action.payload
+		},
 	},
 })
 
-export const { setDummy } = MainSlice.actions
+export const { setDummy , setIsLoggedIn} = MainSlice.actions
 
 export default MainSlice.reducer
