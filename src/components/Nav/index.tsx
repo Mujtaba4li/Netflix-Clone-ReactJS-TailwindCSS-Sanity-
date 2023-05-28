@@ -4,9 +4,10 @@ import { Container, Logo } from './styled'
 import { NetflixSVG, ProfileIMG } from '@assets/components/Nav'
 import { IPos } from '@styles/util'
 import { useNavigate } from 'react-router-dom'
-interface IContainer extends IPos {}
 
-const Nav = (p: IContainer) => {
+interface INav extends IPos {}
+
+const Nav = (p: INav) => {
 	const [scrolled, setScrolled] = useState(false)
 	const Navigate = useNavigate()
 

@@ -8,18 +8,28 @@ import {
 	Plans,
 	PlansText,
 	Right,
-    Text,
+	Text,
 } from './styled'
 import { T14, T16, T20, T20Bold, T36Bold } from '@styles/typo'
 import { ProfileIMG } from '@assets/components/Nav'
 import TextField from '@components/TextField'
 import Line from '@components/Line'
 import Nav from '@components/Nav'
-import { Row } from '@styles/util'
 import Button from '@components/Button'
 import { darkRed } from '@styles/colors'
-interface IContainer {}
-const EditProile = (p: IContainer) => {
+import { useNavigate } from 'react-router-dom'
+
+
+interface IEditPrifole {}
+
+const EditProile = (p: IEditPrifole) => {
+	const Navigate=useNavigate();
+
+
+	const handleClick = () => {
+		Navigate('/checkout')
+	}
+	
 	return (
 		<Container>
 			<Nav />
@@ -37,6 +47,7 @@ const EditProile = (p: IContainer) => {
 						type='email'
 						placeholder='Enter Email address'
 						backgroundColor='grey'
+
 					/>
 					<T20Bold above={10} alignSelf='flex-start' white>
 						PLans
@@ -46,25 +57,38 @@ const EditProile = (p: IContainer) => {
 						<PlansText>
 							<Text white alignSelf='flex-start'>
 								Netflix Standard
-								<T14 white alignSelf='flex-start'>1080p</T14>
+								<T14 white alignSelf='flex-start'>
+									1080p
+								</T14>
 							</Text>
 							<Text white alignSelf='flex-start'>
 								Netflix Basic
-								<T14 white alignSelf='flex-start'>480p</T14>
+								<T14 white alignSelf='flex-start'>
+									480p
+								</T14>
 							</Text>
 							<Text white alignSelf='flex-start'>
 								Netflix Premium
-								<T14 white alignSelf='flex-start'>4K+HDR</T14>
+								<T14 white alignSelf='flex-start'>
+									4K+HDR
+								</T14>
 							</Text>
-							
 						</PlansText>
 						<Buttons>
-							<Button background={darkRed} alignSelf='flex-end'>Subcribe</Button>
-							<Button background={darkRed} alignSelf='flex-end'>Subcribe</Button>
-							<Button background='grey' alignSelf='flex-end'>Current Pakage</Button>
+							<Button background={darkRed} alignSelf='flex-end' onClick={handleClick}>
+								Subcribe
+							</Button>
+							<Button background={darkRed} alignSelf='flex-end'>
+								Subcribe
+							</Button>
+							<Button background='grey' alignSelf='flex-end'>
+								Current Pakage
+							</Button>
 						</Buttons>
 					</Plans>
-							<Button background={darkRed} alignSelf='flex-end' width='100%'>Sign out</Button>
+					<Button background={darkRed} alignSelf='flex-end' width='100%'>
+						Sign out
+					</Button>
 				</Right>
 			</Content>
 		</Container>

@@ -1,7 +1,9 @@
 import styled from '@emotion/styled'
-import { black } from '@styles/colors'
+import { black, darkRed } from '@styles/colors'
+import { T14, T14Bold } from '@styles/typo'
 import { withPos } from '@styles/util'
 import { Bin } from '@types'
+import { keyframes } from '@emotion/react';
 
 interface IContainer {
 	width?: string
@@ -10,6 +12,19 @@ interface IContainer {
 interface IEye {
 	visible: Bin
 }
+
+
+const blinkAnimation = keyframes`
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 export const Container = withPos(styled.div<IContainer>`
 	display: flex;
@@ -85,21 +100,21 @@ export const Line = styled.div`
 	transform: rotate(-30deg);
 `
 
-export const Error = styled.div`
-	margin: 0;
-	color: red;
-	font-weight: 600;
-	font-size: 10rem;
-	width: 5%;
-`
+
+
+export const Error = styled(T14Bold)`
+  margin: 0;
+  color: ${darkRed};
+  font-weight: 600;
+  width: 10%;
+
+animation: ${blinkAnimation} 1.5s infinite;
+`;
 
 export const CardIcon=styled.img`
-/* height: 100rem; */
-/* height:20rem; */
 
 `
 export const Cards=styled.div`
-/* height: 100rem; */
 display:flex;
 gap: 6rem;
 

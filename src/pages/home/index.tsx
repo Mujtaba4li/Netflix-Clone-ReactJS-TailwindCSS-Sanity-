@@ -4,11 +4,11 @@ import React from 'react'
 import { Container } from './styled'
 import Nav from '@components/Nav'
 import Header from '@components/Header'
-interface IContainer{
+interface IHome{
 
 }
 
-const Home = (p:IContainer) => {
+const Home = (p:IHome) => {
   return (
 	<Container>
 		<Nav/>

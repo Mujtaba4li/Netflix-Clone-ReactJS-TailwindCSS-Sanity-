@@ -3,11 +3,11 @@ import { Container } from './styled'
 import { IPos } from '@styles/util'
 import { T20, T20Bold } from '@styles/typo'
 
-interface IContainer extends IPos {
+interface ICardRow extends IPos {
 	title?: string
 }
 
-const CardRow = (p: IContainer) => {
+const CardRow = (p: ICardRow) => {
 const {title}=p;
 
 	return (

@@ -82,7 +82,7 @@ const TextField = ({ ...p }: ITextField) => {
 		<>
 			<Container {...p}>
 				<Input
-				{...p}
+					{...p}
 					type={typeText}
 					placeholder={placeholder}
 					onChange={handleInput}
