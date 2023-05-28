@@ -1,12 +1,14 @@
 import styled from '@emotion/styled'
 import { T14BoldSpaced } from '@styles/typo'
 import { withPos } from '@styles/util'
+import Button from '@components/Button'
+import { darkRed } from '@styles/colors'
 
 interface IButton {
 	background?: string
 	color?: string
-	opacity?:boolean;
-	width?:string;
+	opacity?: boolean
+	width?: string
 }
 
 export const Container = withPos(styled.button<IButton>`
@@ -14,15 +16,16 @@ export const Container = withPos(styled.button<IButton>`
 	align-items: center;
 	justify-content: center;
 
-	width: ${p=>p.width?p.width:'100'};
+	width: ${p => (p.width ? p.width : '100')};
+
 	padding: 20px 30px;
 
 	border-radius: 8px;
 	border: none;
 
 	gap: 5rem;
-	
-	opacity: ${p => (p.opacity ? `0.5` : '1')};;
+
+	opacity: ${p => (p.opacity ? `0.5` : '1')};
 	background-color: ${p => (p.background ? `${p.background}` : 'black')};
 
 	cursor: pointer;
@@ -42,4 +45,21 @@ export const Icon = styled.img`
 `
 export const Text = styled(T14BoldSpaced)<IButton>`
 	color: ${p => (p.color ? p.color : 'white')};
+`
+
+export const SignButton = styled.div`
+display: flex;
+background-color:${darkRed};
+
+padding:15rem;
+
+justify-content: center;
+align-content: center;
+
+border-radius: 5rem;
+
+cursor: pointer;
+:active{
+	opacity: .7;
+}
 `
