@@ -9,9 +9,12 @@ import { useMainSlice } from '@redux/hooks'
 import { useDispatch } from 'react-redux'
 import { setIsLoggedIn } from '@mainSlice'
 
-interface INav extends IPos {}
+interface INav extends IPos {
+	buttonsNone?: boolean
+}
 
 const Nav = (p: INav) => {
+	const { buttonsNone } = p
 	const [scrolled, setScrolled] = useState(false)
 	const Navigate = useNavigate()
 
@@ -40,20 +43,23 @@ const Nav = (p: INav) => {
 	}
 
 	const handleSigin = () => {
-		dispatch(setIsLoggedIn(true));
-		Navigate('/signin');
+		dispatch(setIsLoggedIn(true))
+		Navigate('/signin')
 	}
 
 	return (
 		<Container {...p} scrolled={scrolled}>
 			<Logo src={NetflixSVG} onClick={handleLogo} />
-
-			{!isLoggedIn ? (
-				<SignButton onClick={handleSigin}>
-					<T14 white>Sign in</T14>
-				</SignButton>
-			) : (
-				<Logo src={ProfileIMG} onClick={handleProfileButton} />
+			{!buttonsNone && (
+				<>
+					{!isLoggedIn ? (
+						<SignButton onClick={handleSigin}>
+							<T14 white>Sign in</T14>
+						</SignButton>
+					) : (
+						<Logo src={ProfileIMG} onClick={handleProfileButton} />
+					)}
+				</>
 			)}
 		</Container>
 	)

@@ -25,8 +25,8 @@ export const Container = withPos(styled.button<IButton>`
 
 	gap: 5rem;
 
-	opacity: ${p => (p.opacity ? `0.5` : '1')};
 	background-color: ${p => (p.background ? `${p.background}` : 'black')};
+	${p => p.opacity && `background-color: rgba(0, 0, 0, 0.5);`}
 
 	cursor: pointer;
 
@@ -48,18 +48,18 @@ export const Text = styled(T14BoldSpaced)<IButton>`
 `
 
 export const SignButton = styled.div`
-display: flex;
-background-color:${darkRed};
+	display: flex;
+	background-color: ${darkRed};
 
-padding:15rem;
+	padding: 15rem;
 
-justify-content: center;
-align-content: center;
+	justify-content: center;
+	align-content: center;
 
-border-radius: 5rem;
+	border-radius: 5rem;
 
-cursor: pointer;
-:active{
-	opacity: .7;
-}
+	cursor: pointer;
+	:active {
+		opacity: 0.7;
+	}
 `

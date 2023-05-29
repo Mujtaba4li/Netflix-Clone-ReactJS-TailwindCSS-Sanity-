@@ -1,38 +1,69 @@
 import React, { useEffect, useState } from 'react'
-import { Container, ImageContainer, Image, Content } from './styled'
-import { T14, T20, T20Bold, T36Bold } from '@styles/typo'
-import { slides } from './extras'
+import { Container, Content, StyledRow, Description, Fade } from './styled'
+import { T36Bold } from '@styles/typo'
 import Button from '@components/Button'
-import { Row } from '@styles/util'
+import instance from '@/api/axious'
+import requests from '@/api/requests'
 
 interface IHeader {}
 
 const Header = (p: IHeader) => {
 	const [currentSlide, setCurrentSlide] = useState(0)
 
+	const [movies, setMovies] = useState<any>([])
+
 	useEffect(() => {
-		const interval = setInterval(() => {
-			setCurrentSlide(prevSlide => (prevSlide + 1) % slides.length)
-		}, 3000)
+		const fetchData = () => {
+			instance
+				.get(requests.fetchNetflixOriginals)
+				.then(moviesRequest => {
+					const randomIndex = Math.floor(
+						Math.random() * moviesRequest.data.results.length,
+					)
+					setMovies(moviesRequest.data.results[randomIndex])
+				})
+				.catch(error => {
+					console.error('Error fetching data:', error)
+				})
+		}
 
-		return () => clearInterval(interval)
+		fetchData() // Initial fetch
+
+		const interval = setInterval(fetchData, 3000)
+
+		return () => {
+			clearInterval(interval)
+		}
 	}, [])
+	console.log(movies)
 
-	const { imageSrc, title, description } = slides[currentSlide]
+	const truncate = (string: string, n: any) => {
+		return string?.length > n ? string.substr(0, n - 1) + '...' : string
+	}
+
+	const movieImage = `https://image.tmdb.org/t/p/original/${movies?.backdrop_path}`
+	const movieTitle = movies?.title || movies?.original_name || movies?.name
+	const movieDescription = movies?.overview
 
 	return (
-		<Container {...p}>
-			<ImageContainer>
-				<Image src={imageSrc} alt='Slide' />
-			</ImageContainer>
+		<Container {...p} image={movieImage}>
 			<Content>
-				<T36Bold white alignSelf='flex-start'>{title}</T36Bold>
-				<Row gap={10}>
-					<Button opacity={true} width='130rem'>Play</Button>
-					<Button opacity={true} width='130rem'>My List</Button>
-				</Row>
-				<T14 white alignSelf='flex-start'>{description}</T14>
+				<T36Bold white alignSelf='flex-start'>
+					{movieTitle}
+				</T36Bold>
+				<StyledRow gap={10} above={10}>
+					<Button opacity width='125rem'>
+						Play
+					</Button>
+					<Button opacity width='125rem'>
+						My List
+					</Button>
+				</StyledRow>
+				<Description white alignSelf='flex-start' above={20}>
+					{truncate(movieDescription, 150)}
+				</Description>
 			</Content>
+			<Fade/>
 		</Container>
 	)
 }
