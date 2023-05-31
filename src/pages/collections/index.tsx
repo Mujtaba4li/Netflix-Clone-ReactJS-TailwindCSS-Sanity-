@@ -45,6 +45,7 @@ const Collections = () => {
 			<DropDown />
 			<CardRow title='New movies (This component is ready yet' />
 			<Header/>
+			
 		</Container>
 	)
 }

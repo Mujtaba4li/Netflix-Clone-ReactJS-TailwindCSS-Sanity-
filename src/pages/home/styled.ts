@@ -5,7 +5,8 @@ interface IContainer{}
 
 export const Container = styled.div<IContainer>`
 	width: 100%;
-	height: 120%;
+	/* height: 100%; */
+	/* background: black; */
 `
 
 

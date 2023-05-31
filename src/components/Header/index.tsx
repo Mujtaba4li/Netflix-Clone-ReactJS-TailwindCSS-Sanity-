@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Container, Content, StyledRow, Description, Fade } from './styled'
 import { T36Bold } from '@styles/typo'
 import Button from '@components/Button'
-import instance from '@/api/axious'
+import {imageBaseURL, instance} from '@/api/axious'
 import requests from '@/api/requests'
 
 interface IHeader {}
@@ -41,7 +41,7 @@ const Header = (p: IHeader) => {
 		return string?.length > n ? string.substr(0, n - 1) + '...' : string
 	}
 
-	const movieImage = `https://image.tmdb.org/t/p/original/${movies?.backdrop_path}`
+	const movieImage = `${imageBaseURL}/${movies?.backdrop_path}`
 	const movieTitle = movies?.title || movies?.original_name || movies?.name
 	const movieDescription = movies?.overview
 

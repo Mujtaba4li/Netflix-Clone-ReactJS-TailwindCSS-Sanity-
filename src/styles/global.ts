@@ -11,6 +11,7 @@ export default css`
 		display: flex;
 		-webkit-overflow-scrolling: touch;
 		font-size: 1px;
+		background: black;
 	}
 
 	body {
