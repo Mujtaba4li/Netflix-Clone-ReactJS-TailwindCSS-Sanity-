@@ -5,9 +5,8 @@ import { NetflixSVG, ProfileIMG } from '@assets/components/Nav'
 import { IPos } from '@styles/util'
 import { useNavigate } from 'react-router-dom'
 import { SignButton } from '@components/Button/styled'
-import { useMainSlice } from '@mainSlice/hooks'
 import { useDispatch } from 'react-redux'
-import { setIsLoggedIn } from '@mainSlice'
+import { useUserSlice } from '@userSlice/hooks'
 
 interface INav extends IPos {
 	buttonsNone?: boolean
@@ -18,7 +17,7 @@ const Nav = (p: INav) => {
 	const [scrolled, setScrolled] = useState(false)
 	const Navigate = useNavigate()
 
-	const isLoggedIn = useMainSlice(e => e.isLoggedIn)
+	const isLoggedIn = useUserSlice(e=>e.login)
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -43,7 +42,6 @@ const Nav = (p: INav) => {
 	}
 
 	const handleSigin = () => {
-		dispatch(setIsLoggedIn(true))
 		Navigate('/signin')
 	}
 

@@ -6,8 +6,15 @@ import { Row } from '@styles/util'
 import TextField from '@components/TextField'
 import Button from '@components/Button'
 import { darkRed } from '@styles/colors'
+import { useNavigate } from 'react-router-dom'
 interface IWelcome {}
 export const Welcome = (p: IWelcome) => {
+	const navigate = useNavigate();
+	
+
+	const handleClick = () => {
+		navigate('/signin');
+	}
 	return (
 		<Container {...p}>
 			<Nav />
@@ -19,7 +26,9 @@ export const Welcome = (p: IWelcome) => {
 				</T14>
 				<Row>
 					<StyledTextField type='email' placeholder='Email address' />
-					<StyledButton background={darkRed}>Get Started</StyledButton>
+					<StyledButton background={darkRed} onClick={handleClick}>
+						Get Started
+					</StyledButton>
 				</Row>
 			</Content>
 		</Container>

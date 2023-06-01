@@ -9,5 +9,5 @@ type UseUserSlice = <T = unknown>(selector: (state: UserState) => T) => T
 
 const user = (state: State) => state.user
 
-export const useMainSlice: UseUserSlice = selector =>
+export const useUserSlice: UseUserSlice = selector =>
 	useSelector(createSelector(user, selector))

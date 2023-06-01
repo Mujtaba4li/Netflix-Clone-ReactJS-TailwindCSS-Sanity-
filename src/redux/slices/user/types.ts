@@ -1,4 +1,7 @@
+export interface IUser{
+    userId:string,
+    userEmail:string
+}
 export interface UserState{
-    login:boolean;
-    logout:boolean;
+    login:IUser | null;
 }

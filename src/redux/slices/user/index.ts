@@ -1,16 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { initUserState } from './init'
+import { IUser } from './types'
 
 const UserSlice = createSlice({
 	name: 'user',
 	initialState: initUserState,
 	reducers: {
-		setLogin: (state, action: PayloadAction<boolean>) => {
+		setLogin: (state, action: PayloadAction<IUser|null>) => {
 			state.login = action.payload
 		},
-		setLogout: (state, action: PayloadAction<boolean>) => {
-			state.logout = action.payload
+		setLogout: (state) => {
+			state.login = null;
 		},
 	},
 })
