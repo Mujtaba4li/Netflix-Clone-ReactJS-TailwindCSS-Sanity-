@@ -21,12 +21,15 @@ import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 } from 'firebase/auth'
+import { useDispatch } from 'react-redux'
+import user from '@userSlice'
 
 interface ISignIn {}
 
 const SignIn = (p: ISignIn) => {
 	const Navigate = useNavigate()
-	// const emailRef = useRef<any>('mmm')
+	const dispatch=useDispatch();
+	
 	const emailRef = useRef<HTMLInputElement>(null)
 	const passwordRef = useRef<HTMLInputElement>(null)
 

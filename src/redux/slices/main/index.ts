@@ -15,6 +15,6 @@ const MainSlice = createSlice({
 	},
 })
 
-export const { setDummy , setIsLoggedIn} = MainSlice.actions
+export const { setDummy, setIsLoggedIn } = MainSlice.actions
 
 export default MainSlice.reducer

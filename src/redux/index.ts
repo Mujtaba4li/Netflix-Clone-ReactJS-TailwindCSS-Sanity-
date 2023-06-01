@@ -8,10 +8,17 @@ import { MainState } from '@mainSlice/types'
 import { combineReducers, configureStore, EmptyObject } from '@reduxjs/toolkit'
 import { CurriedGetDefaultMiddleware } from '@reduxjs/toolkit/dist/getDefaultMiddleware'
 
+import userSlice from '@userSlice'
+import { UserState } from '@userSlice/types'
+import { initUserState } from '@userSlice/init'
+
+
+
 type MiddlewareGenerator = (
 	getDefaultMiddleware: CurriedGetDefaultMiddleware<
 		EmptyObject & {
 			main: MainState
+			user:UserState
 		} & PersistPartial
 	>,
 ) => any[]
@@ -22,12 +29,14 @@ const persistConfig: any = {
 	migrate: (state: State) => {
 		const { _persist = {} } = state || {}
 		const main = { ...initMainState, ...(state?.main || {}) }
+		const user = { ...initUserState, ...(state?.user || {}) }
 		return Promise.resolve({ _persist, main })
 	},
 }
 
 const rootReducer = combineReducers({
 	main: mainSlice,
+	user:userSlice
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

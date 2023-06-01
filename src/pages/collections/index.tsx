@@ -9,7 +9,7 @@ import CardRow from '@components/CardRow'
 import Nav from '@components/Nav'
 import Header from '@components/Header'
 import { useDispatch } from 'react-redux'
-import { useMainSlice } from '@redux/hooks'
+import { useMainSlice } from '@mainSlice/hooks'
 import { setDummy } from '@mainSlice'
 import LinkText from '@components/LinkText'
 
@@ -24,17 +24,19 @@ const Collections = () => {
 		const time = new Date().getTime()
 		updateDummy(time.toString())
 	}
-	
+
 	return (
 		<Container>
-			<Nav/>
+			<Nav />
 			<HomeDummy>
-			<T48Bold>{dummy}</T48Bold>
-			<LinkText to='collections' above={10}>Go to Collection Page</LinkText>
-			<Button above={50} onClick={onClick}>
-				Click here
-			</Button>
-		</HomeDummy>
+				<T48Bold>{dummy}</T48Bold>
+				<LinkText to='collections' above={10}>
+					Go to Collection Page
+				</LinkText>
+				<Button above={50} onClick={onClick}>
+					Click here
+				</Button>
+			</HomeDummy>
 			<Button background='red' color='white'>
 				Button
 			</Button>
@@ -44,8 +46,7 @@ const Collections = () => {
 			<TextField placeholder='Enter password' type='text' conditionalField='cardNumber' />
 			<DropDown />
 			<CardRow title='New movies (This component is ready yet' />
-			<Header/>
-			
+			<Header />
 		</Container>
 	)
 }

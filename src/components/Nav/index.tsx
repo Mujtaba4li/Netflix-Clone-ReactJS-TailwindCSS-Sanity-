@@ -5,7 +5,7 @@ import { NetflixSVG, ProfileIMG } from '@assets/components/Nav'
 import { IPos } from '@styles/util'
 import { useNavigate } from 'react-router-dom'
 import { SignButton } from '@components/Button/styled'
-import { useMainSlice } from '@redux/hooks'
+import { useMainSlice } from '@mainSlice/hooks'
 import { useDispatch } from 'react-redux'
 import { setIsLoggedIn } from '@mainSlice'
 
