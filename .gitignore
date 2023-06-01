@@ -16,6 +16,7 @@ dist-ssr
 firebase.json
 .firebase
 build
+src/firebase/index.ts
 
 # Editor directories and files
 .vscode/*

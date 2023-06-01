@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import {
 	Box,
 	Container,
@@ -16,17 +16,79 @@ import { darkRed } from '@styles/colors'
 import { Row } from '@styles/util'
 import { useNavigate } from 'react-router-dom'
 
+import {
+	getAuth,
+	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+} from 'firebase/auth'
+
 interface ISignIn {}
 
 const SignIn = (p: ISignIn) => {
 	const Navigate = useNavigate()
+	// const emailRef = useRef<any>('mmm')
+	const emailRef = useRef<HTMLInputElement>(null)
+	const passwordRef = useRef<HTMLInputElement>(null)
 
 	const handleSignup = () => {
-		Navigate('/')
+		// Navigate('/');
+		const auth = getAuth()
+		createUserWithEmailAndPassword(
+			auth,
+			`${emailRef.current?.value}`,
+			`${passwordRef.current?.value}`,
+		)
+			.then(userCredential => {
+				const user = userCredential.user
+				console.log(user);
+				alert("User with '" + user.email + "' create successfully!!!");
+				resetFields();
+			})
+			.catch(error => {
+				const errorCode = error.code
+				const errorMessage = error.message
+
+				alert(errorMessage)
+			})
 	}
 
 	const handleSignIn = () => {
-		Navigate('/home')
+		// Navigate('/home')
+		const auth = getAuth()
+		signInWithEmailAndPassword(
+			auth,
+			`${emailRef.current?.value}`,
+			`${passwordRef.current?.value}`,
+		)
+			.then(userCredential => {
+				const user = userCredential.user
+				console.log(user)
+				alert('login successfully!!!')
+				resetFields()
+			})
+			.catch(error => {
+				const errorCode = error.code
+				const errorMessage = error.message
+
+				alert(errorMessage)
+			})
+	}
+
+	const resetFields = () => {
+		if (emailRef.current) {
+			emailRef.current.value = ''
+		}
+		if (passwordRef.current) {
+			passwordRef.current.value = ''
+		}
+	}
+	//Authentication
+	const register = (e: any) => {
+		e.preventDetault()
+	}
+
+	const signIn = (e: any) => {
+		e.preventDetault()
 	}
 
 	return (
@@ -38,8 +100,19 @@ const SignIn = (p: ISignIn) => {
 						<T24Bold alignSelf='flex-start' white>
 							Sigin In
 						</T24Bold>
-						<TextField type='email' placeholder='Enter email address' above={20} />
-						<TextField type='password' placeholder='Enter password' above={10} />
+
+						<TextField
+							ref={emailRef}
+							type='email'
+							placeholder='Enter email address'
+							above={20}
+						/>
+						<TextField
+							ref={passwordRef}
+							type='password'
+							placeholder='Enter password'
+							above={10}
+						/>
 					</UpperContent>
 
 					<LowerContent>

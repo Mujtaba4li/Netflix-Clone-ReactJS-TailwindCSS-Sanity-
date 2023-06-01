@@ -1,4 +1,10 @@
-import React, { useState, ChangeEvent } from 'react'
+import React, {
+	useState,
+	ChangeEvent,
+	forwardRef,
+	useRef,
+	useImperativeHandle,
+} from 'react'
 import { CardIcon, Cards, Container, Error, Eye, Icon, Input, Line } from './styled'
 import { IPos } from '@styles/util'
 import {
@@ -13,6 +19,7 @@ type TFieldType = 'text' | 'password' | 'number' | 'email'
 type TConditionalField = 'cardNumber' | 'expiryDate' | 'cvv' | 'postalCode'
 
 interface ITextField extends IPos {
+	value?: any
 	placeholder?: string
 	type: TFieldType
 	width?: string
@@ -20,7 +27,8 @@ interface ITextField extends IPos {
 	backgroundColor?: string
 }
 
-const TextField = ({ ...p }: ITextField) => {
+const TextField = forwardRef<HTMLInputElement, ITextField>((p, ref) => {
+	// const TextField = ({ ...p }: ITextField) => {
 	const { placeholder, type, conditionalField } = p
 	const [visible, setVisible] = useState(true)
 	const [typeText, setTypeText] = useState(type)
@@ -31,6 +39,10 @@ const TextField = ({ ...p }: ITextField) => {
 		setVisible(!visible)
 		setTypeText(visible ? 'text' : type)
 	}
+
+	const inputRef = useRef<HTMLInputElement>(null)
+
+	useImperativeHandle(ref, () => inputRef.current as HTMLInputElement)
 
 	const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
 		const inputValue = event.target.value
@@ -73,7 +85,6 @@ const TextField = ({ ...p }: ITextField) => {
 	}
 
 	const isValidEmail = (value: string): boolean => {
-		// Basic email validation
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 		return emailRegex.test(value)
 	}
@@ -83,6 +94,7 @@ const TextField = ({ ...p }: ITextField) => {
 			<Container {...p}>
 				<Input
 					{...p}
+					ref={inputRef}
 					type={typeText}
 					placeholder={placeholder}
 					onChange={handleInput}
@@ -100,14 +112,14 @@ const TextField = ({ ...p }: ITextField) => {
 				{conditionalField === 'cvv' && <CardIcon src={CvvSVG} height={25} alt='CVV' />}
 				{conditionalField === 'cardNumber' && (
 					<Cards>
-						<CardIcon src={CreditCard} height={45} alt='CVV' />
-						<CardIcon src={MagnetCard} height={45} alt='CVV' />
-						<CardIcon src={VisaCard} height={45} alt='CVV' />
+						<CardIcon src={CreditCard} height={45} alt='CreditCard' />
+						<CardIcon src={MagnetCard} height={45} alt='MagnetCard' />
+						<CardIcon src={VisaCard} height={45} alt='VisaCard' />
 					</Cards>
 				)}
 			</Container>
 		</>
 	)
-}
+})
 
 export default TextField
