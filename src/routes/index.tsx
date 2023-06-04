@@ -30,7 +30,7 @@ export default function Routing() {
 						<Route path='/collections' element={<Collections />} />
 						<Route path='/checkout' element={<Checkout />} />
 						<Route path='/editprofile' element={<EditProile />} />
-						<Route path='*' element={<Navigate to='/' replace />} />
+						<Route path='*' element={<Navigate to='/home' replace />} />
 					</>
 				)}
 			</Routes>

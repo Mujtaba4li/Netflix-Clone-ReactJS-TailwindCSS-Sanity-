@@ -22,14 +22,14 @@ import {
 	signInWithEmailAndPassword,
 } from 'firebase/auth'
 import { useDispatch } from 'react-redux'
-import user from '@userSlice'
+import user, { setLogin } from '@userSlice'
 
 interface ISignIn {}
 
 const SignIn = (p: ISignIn) => {
-	const Navigate = useNavigate()
-	const dispatch=useDispatch();
-	
+	const navigate = useNavigate()
+	const dispatch = useDispatch()
+
 	const emailRef = useRef<HTMLInputElement>(null)
 	const passwordRef = useRef<HTMLInputElement>(null)
 
@@ -43,9 +43,10 @@ const SignIn = (p: ISignIn) => {
 		)
 			.then(userCredential => {
 				const user = userCredential.user
-				console.log(user);
-				alert("User with '" + user.email + "' create successfully!!!");
-				resetFields();
+				console.log(user)
+				alert("User with '" + user.email + "' create successfully!!!")
+
+				resetFields()
 			})
 			.catch(error => {
 				const errorCode = error.code
@@ -64,9 +65,17 @@ const SignIn = (p: ISignIn) => {
 			`${passwordRef.current?.value}`,
 		)
 			.then(userCredential => {
-				const user = userCredential.user
-				console.log(user)
+				const USER = userCredential.user
+				console.log(USER)
+				dispatch(
+					setLogin({
+						userId: `${USER?.uid}`,
+						userEmail: `${USER?.email}`,
+					}),
+				)
+
 				alert('login successfully!!!')
+				navigate('/home')
 				resetFields()
 			})
 			.catch(error => {
