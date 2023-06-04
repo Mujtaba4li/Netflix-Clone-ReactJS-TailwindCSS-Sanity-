@@ -2,6 +2,8 @@ import { MoviesListImg } from '@assets/pages'
 import Button from '@components/Button'
 import TextField from '@components/TextField'
 import styled from '@emotion/styled'
+import { darkRed } from '@styles/colors'
+import { Row } from '@styles/util'
 
 interface IContainer {}
 
@@ -23,19 +25,25 @@ export const Content = styled.div`
 	width: 100%;
 	height: 100%;
 
-    padding: 18% 25%;
+	padding: 18% 25%;
 	background-color: rgba(0, 0, 0, 0.7);
 
-    gap: 10rem;
-    
+	gap: 10rem;
 `
 
-export const StyledTextField=styled(TextField)`
-border-radius: 10rem 0rem 0rem 10rem;
-
+export const StyledTextField = styled(TextField)`
+	border-radius: 10rem 0rem 0rem 10rem;
 `
 
 export const StyledButton = styled(Button)`
 	height: 50rem;
-    border-radius: 0rem 10rem 10rem 0rem;
+	border-radius: 0rem 10rem 10rem 0rem;
+`
+
+export const Input = styled(Row)`
+		@media screen and (max-width: 663px) {
+		background-color: ${darkRed};
+			border-radius: 15rem;
+		flex-direction: column;
+	}
 `

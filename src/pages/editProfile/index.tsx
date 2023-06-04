@@ -33,7 +33,7 @@ const EditProile = (p: IEditPrifole) => {
 	}
 
 	const handleSignout = () => {
-		dispatch(setLogout());
+		dispatch(setLogout())
 	}
 
 	return (
@@ -60,7 +60,7 @@ const EditProile = (p: IEditPrifole) => {
 					<Line above={10} below={10} opacity={0.5} />
 
 					<NetflixPlans />
-				
+
 					<Button
 						background={darkRed}
 						alignSelf='flex-end'

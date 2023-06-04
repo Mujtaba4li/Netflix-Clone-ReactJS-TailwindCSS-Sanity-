@@ -51,7 +51,7 @@ const Header = (p: IHeader) => {
 				<T36Bold white alignSelf='flex-start'>
 					{movieTitle}
 				</T36Bold>
-				<StyledRow gap={10} above={10}>
+				<StyledRow gap={10} above={10} alignSelf='flex-start'>
 					<Button opacity width='125rem'>
 						Play
 					</Button>

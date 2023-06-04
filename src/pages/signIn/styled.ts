@@ -57,3 +57,7 @@ flex-direction: column;
 export const LowerContent=styled(UpperContent)`
 
 `
+export const SignDetails=styled.span`
+color:white;
+font-size:12rem;
+`

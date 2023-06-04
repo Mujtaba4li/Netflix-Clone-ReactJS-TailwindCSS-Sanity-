@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Content, StyledButton, StyledTextField } from './styled.'
+import { Container, Content, Input, StyledButton, StyledTextField } from './styled.'
 import { T14, T16, T20, T36Bold } from '@styles/typo'
 import Nav from '@components/Nav'
 import { Row } from '@styles/util'
@@ -24,12 +24,12 @@ export const Welcome = (p: IWelcome) => {
 				<T14 white above={10}>
 					Ready to watch? Enter your email to create or restart your membership
 				</T14>
-				<Row>
+				<Input>
 					<StyledTextField type='email' placeholder='Email address' />
 					<StyledButton background={darkRed} onClick={handleClick}>
 						Get Started
 					</StyledButton>
-				</Row>
+				</Input>
 			</Content>
 		</Container>
 	)

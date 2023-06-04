@@ -4,6 +4,7 @@ import {
 	Container,
 	Content,
 	LowerContent,
+	SignDetails,
 	SignUp,
 	StyledT14,
 	UpperContent,
@@ -110,7 +111,7 @@ const SignIn = (p: ISignIn) => {
 				<Box>
 					<UpperContent>
 						<T24Bold alignSelf='flex-start' white>
-							Sigin In
+							Sigin In <SignDetails>(email: test@gmail.com, password:123123)</SignDetails>
 						</T24Bold>
 
 						<TextField
@@ -132,7 +133,7 @@ const SignIn = (p: ISignIn) => {
 							Sigin In
 						</Button>
 						<Row gap={5} above={10}>
-							<StyledT14 white>New to Netflix?</StyledT14>
+							<StyledT14 white>To register just enter credentials and click here !!!</StyledT14>
 							<SignUp white onClick={handleSignup}>
 								Sign Up Now.
 							</SignUp>

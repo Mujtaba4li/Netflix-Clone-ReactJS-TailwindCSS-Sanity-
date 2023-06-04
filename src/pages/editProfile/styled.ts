@@ -13,6 +13,10 @@ export const Container = styled.div`
 
 export const Content = styled.div`
 	display: flex;
+	@media screen and (max-width: 1200px) {
+		flex-direction: column;
+		gap: 10rem;
+	}
 `
 export const Left = styled.div`
 	display: flex;

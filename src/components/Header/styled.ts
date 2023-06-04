@@ -41,11 +41,14 @@ export const Content = styled.div`
 export const StyledRow = styled(Row)`
 	/* background: orange; */
 	justify-content: flex-start;
+
+		
 `
 
 export const Description = styled(T14)`
 	text-align: left;
 	line-height: 18rem;
+	width: 80%;
 `
 
 export const Fade = styled.div`
