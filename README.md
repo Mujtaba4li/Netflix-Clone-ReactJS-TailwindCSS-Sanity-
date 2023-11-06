@@ -2,7 +2,7 @@
 
 This project is a Netflix clone built with Next.js, Tailwind CSS, React, Sanity, and Redux. It aims to replicate the user interface and functionality of the Netflix streaming platform.
 
-[Netflix Clone live demo](https://buy-now-ecommerce-store.vercel.app/)
+[Netflix Clone live demo](https://netflix-clone-69c81.web.app/)
 
 ## Features
 
