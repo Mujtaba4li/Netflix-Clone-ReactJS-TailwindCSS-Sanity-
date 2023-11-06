@@ -1,6 +1,6 @@
 # Netflix Clone
 
-This project is a Netflix clone built with Next.js, Tailwind CSS, React, Sanity, and Redux. It aims to replicate the user interface and functionality of the Netflix streaming platform.
+This project is a Netflix clone built with ReactJS, TypeScript, Vite, Stripe Checkout & Webhooks, Redux Toolkit, Firestore, Google Authentication, and the MovieDB API. It aims to replicate the user interface and functionality of the Netflix streaming platform.
 
 [Netflix Clone live demo](https://netflix-clone-69c81.web.app/)
 
@@ -15,20 +15,21 @@ This project is a Netflix clone built with Next.js, Tailwind CSS, React, Sanity,
 
 ## Technologies Used
 
-- [Next.js](https://nextjs.org/): A React framework for server-side rendering and routing.
-- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework.
-- [React](https://reactjs.org/): A JavaScript library for building user interfaces.
-- [Sanity](https://www.sanity.io/): A headless content management system (CMS) for managing content.
-- [Redux](https://redux.js.org/): A predictable state container for JavaScript applications.
+- [ReactJS](https://reactjs.org/): A JavaScript library for building user interfaces.
+- [TypeScript](https://www.typescriptlang.org/): A typed superset of JavaScript.
+- [Vite](https://vitejs.dev/): A fast and minimalist build tool for modern web development.
+- [Stripe Checkout & Webhooks](https://stripe.com/): A payment processing solution.
+- [Redux Toolkit](https://redux-toolkit.js.org/): An opinionated, batteries-included toolset for efficient Redux development.
+- [Firestore](https://firebase.google.com/products/firestore): A NoSQL cloud database for web and mobile applications.
+- [Google Authentication](https://firebase.google.com/docs/auth): Secure and easy-to-use authentication service.
+- [MovieDB API](https://www.themoviedb.org/documentation/api): A popular source for movie and TV show data.
 
 ## Getting Started
 
- Clone the repository & Run project:
+Clone the repository & Run the project:
 
-   ```bash
-   git clone https://github.com/Mujtaba4li/Netflix-Clone-ReactJS-TailwindCSS-Sanity-.git
-   cd netflix-clone
-   yarn install
-   yarn start
-```
-
+```bash
+git clone https://github.com/Mujtaba4li/Netflix-Clone-ReactJS-TailwindCSS-Sanity-.git
+cd netflix-clone
+yarn install
+yarn start
